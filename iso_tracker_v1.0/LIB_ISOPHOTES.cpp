@@ -8,7 +8,7 @@
 #include "LIB_ISOPHOTES.h"
 
 
-void mapadecentros_prueba( Mat& imCONV, float *fp_im_src, float *fp_MAPA, float *fp_FX, float *fp_FY, float *fp_FXX, float *fp_FYY, float *fp_FXY, 
+void mapadecentros_completo( Mat& imCONV, float *fp_im_src, float *fp_MAPA, float *fp_FX, float *fp_FY, float *fp_FXX, float *fp_FYY, float *fp_FXY, 
      uint16_t wim, uint16_t him, float *fp_ph_gauss1, float *fp_ph_gauss2, float *fp_pd1, float *fp_pd1n, float *fp_pp, float *fp_ppn, float *fp_pd2, 
      uint16_t rmin, uint16_t rmax, uint16_t *fp_imax, uint16_t *fp_jmax, float *max_MAPA )
 {

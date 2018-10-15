@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=iso_tracker_img_v73
+PROJECTNAME=iso_tracker_v1.0
 
 # Active Configuration
 DEFAULTCONF=Debug

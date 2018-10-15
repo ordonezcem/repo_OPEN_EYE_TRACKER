@@ -5,85 +5,6 @@
 #include "defs_globales.h"
 #include <time.h>
 
-
-
-//void dibujo_contorno(float *v_contorno, uint16_t ip_inicial, uint16_t jp_inicial, Mat& im_ajuste, uint16_t ancho_screen, uint16_t alto_screen, uint16_t *fp_vxajustes, uint16_t *fp_vyajustes)
-//{ 
-//    const double pi = 3.1415926535897;
-//      
-//    float fase, im, re;
-//    
-//    uint16_t i,j;             
-//        
-//    //float xf1, yf1, xf2, yf2; 
-//    //float mr1, mr2, br1, br2;
-//
-//    //float xf4, yf4, xf5, yf5; 
-//
-//    //---------------------------------------------------------        
-//    uint16_t x1,x2,x3,x4,y1,y2,y3,y4;
-//    uint16_t x,y;
-//    
-//    float fase_der_circ1, fase_abajo_circ1, fase_izq_circ2, fase_arr_circ2, fase_izq_circ3, fase_abajo_circ3, fase_arr_circ4, fase_der_circ4;
-//    const uint16_t offset_comando=15;
-//    const float epsilon=1;
-//    float r;
-//    const uint16_t OFFSET_FASE=10;
-//    float xc1a, xc1b, xc2a, xc2b, xc3a, xc3b, xc4a, xc4b;
-//    float yc1a, yc1b, yc2a, yc2b, yc3a, yc3b, yc4a, yc4b;
-//    float mr_up, mr_down, br_up, br_down;
-//    float fase_rizq, fase_rder;
-//    
-//char texto[50];
-//
-//    x1=*(fp_vxajustes+1); x2=*(fp_vxajustes+2); x3=*(fp_vxajustes+3); x4=*(fp_vxajustes+4);  
-//    y1=*(fp_vyajustes+1); y2=*(fp_vyajustes+2); y3=*(fp_vyajustes+3); y4=*(fp_vyajustes+4); 
-//
-//    
-//    
-//    for (r = 0; r<(yc4a-yc1b)/sin(fase_rizq*pi/180); r = r+0.1){
-//        x = xc4a+r*cos(fase_rizq*pi/180);
-//        y = yc4a-r*sin(fase_rizq*pi/180);
-//        im_ajuste.at<Vec3b>(y-ip_inicial+alto_screen/2, x-jp_inicial+ancho_screen/2-300) = Vec3b(255, 255, 0);
-//    }
-//    for (r = 0; r<(yc2b-yc3a)/sin(fase_rizq*pi/180); r = r+0.1){
-//        x = xc2b+r*cos(fase_rder*pi/180);
-//        y = yc2b-r*sin(fase_rder*pi/180);
-//        im_ajuste.at<Vec3b>(y-ip_inicial+alto_screen/2, x-jp_inicial+ancho_screen/2-300) = Vec3b(255, 255, 0);
-//    }
-//    for (x=xc1a; x<xc3b; x++){        
-//        im_ajuste.at<Vec3b>(br_up+mr_up*x-ip_inicial+alto_screen/2, x-jp_inicial+ancho_screen/2-300) = Vec3b(255, 255, 0);
-//    }     
-//    for (x=xc4b; x<xc2a; x++){        
-//        im_ajuste.at<Vec3b>(br_down+mr_down*x-ip_inicial+alto_screen/2, x-jp_inicial+ancho_screen/2-300) = Vec3b(255, 255, 0);
-//    }   
-//    for (fase=90+OFFSET_FASE; fase<(180-OFFSET_FASE); fase=fase+0.1){
-//        x=x1+offset_comando*cos(fase*pi/180);
-//        y=y1-offset_comando*sin(fase*pi/180);  
-//        im_ajuste.at<Vec3b>(y-ip_inicial+alto_screen/2, x-jp_inicial+ancho_screen/2-300) = Vec3b(255, 255, 0);
-//    }  
-//    for (fase=(180+OFFSET_FASE); fase<(270-OFFSET_FASE); fase=fase+0.1){
-//        x=x4+offset_comando*cos(fase*pi/180);
-//        y=y4-offset_comando*sin(fase*pi/180);        
-//        im_ajuste.at<Vec3b>(y-ip_inicial+alto_screen/2, x-jp_inicial+ancho_screen/2-300) = Vec3b(255, 255, 0);
-//    }  
-//    for (fase=(270+OFFSET_FASE); fase<(360-OFFSET_FASE); fase=fase+0.1){
-//        x=x2+offset_comando*cos(fase*pi/180);
-//        y=y2-offset_comando*sin(fase*pi/180);        
-//        im_ajuste.at<Vec3b>(y-ip_inicial+alto_screen/2, x-jp_inicial+ancho_screen/2-300) = Vec3b(255, 255, 0);
-//    }      
-//    for (fase=(0+OFFSET_FASE); fase<(90-OFFSET_FASE); fase=fase+0.1){
-//        x=x3+offset_comando*cos(fase*pi/180);
-//        y=y3-offset_comando*sin(fase*pi/180);        
-//        im_ajuste.at<Vec3b>(y-ip_inicial+alto_screen/2, x-jp_inicial+ancho_screen/2-300) = Vec3b(255, 255, 0);
-//    }     
-//
-//Point(round(ancho_screen/2),350), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2); 
-//imshow("ISO_TRACKER",im_ajuste);
-//waitKey(0);
-//
-//}
-
 void contorno(float *v_contorno, uint16_t ip_inicial, uint16_t jp_inicial, Mat& im_ajuste, uint16_t ancho_screen, uint16_t alto_screen, Mat& im_control, uint16_t ancho_control, uint16_t alto_control, uint16_t *fp_vxajustes, uint16_t *fp_vyajustes)
 { 
     const double pi = 3.1415926535897;
@@ -91,27 +12,19 @@ void contorno(float *v_contorno, uint16_t ip_inicial, uint16_t jp_inicial, Mat& 
     float fase, im, re;
     
     uint16_t i,j;             
-        
-    //float xf1, yf1, xf2, yf2; 
-    //float mr1, mr2, br1, br2;
-
-    //float xf4, yf4, xf5, yf5; 
 
     //---------------------------------------------------------        
     uint16_t x1,x2,x3,x4,y1,y2,y3,y4;
     uint16_t x,y;
     
     float fase_der_circ1, fase_abajo_circ1, fase_izq_circ2, fase_arr_circ2, fase_izq_circ3, fase_abajo_circ3, fase_arr_circ4, fase_der_circ4;
-    //const uint16_t offset_comando=15;
-    //const float epsilon=1;
     float r;
-    //const uint16_t OFFSET_FASE=10;
     float xc1a, xc1b, xc2a, xc2b, xc3a, xc3b, xc4a, xc4b;
     float yc1a, yc1b, yc2a, yc2b, yc3a, yc3b, yc4a, yc4b;
     float mr_up, mr_down, br_up, br_down;
     float fase_rizq, fase_rder;
     
-char texto[50];
+    char texto[50];
 
     x1=*(fp_vxajustes+1); x2=*(fp_vxajustes+2); x3=*(fp_vxajustes+3); x4=*(fp_vxajustes+4);  
     y1=*(fp_vyajustes+1); y2=*(fp_vyajustes+2); y3=*(fp_vyajustes+3); y4=*(fp_vyajustes+4); 
@@ -144,9 +57,6 @@ char texto[50];
     br_down = yc2a-mr_down*xc2a;
 
 
-     
-    
-   
     im = ip_inicial-( y1-offset_comando*sin((90+OFFSET_FASE)*pi/180) );
     re = x1+offset_comando*cos((90+OFFSET_FASE)*pi/180)-jp_inicial;
     fase_der_circ1 = fasegrados(im,re);    
@@ -175,12 +85,6 @@ char texto[50];
     re = x3+offset_comando*cos((90-OFFSET_FASE)*pi/180)-jp_inicial;
     fase_izq_circ3 = fasegrados(im,re);    
     
-
-    
-
-
- 
-
     im = yc4a-yc1b; re = xc1b-xc4a;
     fase_rizq = fasegrados(im,re);
     im = yc2b-yc3a; re = xc3a-xc2b;
@@ -190,15 +94,14 @@ char texto[50];
 
     
     
-double k;
-double R;    
-float fase_circulo;
-const float epsilon_circulo=2;
-float fase_aux;
-boolean seguir;
-//float v_contorno[3700];
-uint16_t q=0;;
-//fase_circulo=0;
+    double k;
+    double R;    
+    float fase_circulo;
+    const float epsilon_circulo=2;
+    float fase_aux;
+    boolean seguir;
+    uint16_t q=0;;
+
     for(fase=0; fase<=360.1; fase=fase+0.1){ 
         if ( (fase>=fase_abajo_circ3) && (fase<fase_izq_circ3) ) {    
             seguir=true;
@@ -279,37 +182,10 @@ uint16_t q=0;;
             R = yc2b-k*jp_inicial+k*xc2b-ip_inicial;
             R = R/( k*cos(fase*pi/180)- sin(fase*pi/180) ); 
             
-//            if (fase>=359){
-//               // fase = 358;
-//                k = sin(fase_rder*pi/180)/cos(fase_rder*pi/180);
-//                R = yc2b-k*jp_inicial+k*xc2b-ip_inicial;        
-//                R = R/( k*cos(fase*pi/180)- sin(fase*pi/180) );
-//                
-//for (i=0; i<alto_screen; i++){
-//    for (j=0; j<ancho_screen; j++)
-//        im_ajuste.at<Vec3b>(i, j) = Vec3b(0, 0, 0);
-//}                
-//sprintf(texto,"fase LALALALAL: %2.1f", fase);
-//putText(im_ajuste, texto, Point(round(ancho_screen/2),320), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2); 
-//sprintf(texto,"R : %2.1f", R);
-//putText(im_ajuste, texto, Point(round(ancho_screen/2),350), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2); 
-//imshow("ISO_TRACKER",im_ajuste);
-//waitKey(0);
-//            }
         }
         *(v_contorno+q)=R;
         q++;
     }
-//---------------------------------------------------
-//---------------------------------------------------
-//    for(fase=0; fase<=360; fase=fase+0.1){ 
-//        R = *(  v_contorno+uint16_t(ceil(fase*10)) );
-//        x = jp_inicial+R*cos(fase*pi/180);
-//        y = ip_inicial-R*sin(fase*pi/180);       
-//        im_ajuste.at<Vec3b>(y-ip_inicial+alto_screen/2, x-jp_inicial+ancho_screen/2) = Vec3b(0, 0, 255);       
-//    }
-//---------------------------------------------------
-//---------------------------------------------------
 
 //--------------------------
 float mrf1, mrf2, mrf3, mrf4, mrf5, mrf6;
@@ -509,21 +385,6 @@ for (i=0; i<alto_control; i++){
         im_ajuste.at<Vec3b>(i-alto_control/2+alto_screen/2+OFFSET_CONTROL, j-ancho_control/2+ancho_screen/2) = im_control.at<Vec3b>(i,j);
 }  
 
-//--------------------------
-
-//for (i=0; i<alto_screen; i++){
-//    for (j=0; j<ancho_screen; j++)
-//        im_ajuste.at<Vec3b>(i, j) = Vec3b(0, 0, 0);
-//} 
-//sprintf(texto,"fase : %2.1f", fase);
-//putText(im_ajuste, texto, Point(round(ancho_screen/2),320), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2); 
-//sprintf(texto,"R : %2.1f", R);
-//putText(im_ajuste, texto, Point(round(ancho_screen/2),350), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2); 
-
-//imshow("ISO_TRACKER",im_ajuste);
-//imshow("control",im_control);
-//waitKey(0);
-
 }
 
 void dibujo_comando(boolean confirmado, float fase_comando, float distancia_comando, float *v_contorno, Mat& im_ajuste, 
@@ -621,7 +482,7 @@ void dibujo_comando(boolean confirmado, float fase_comando, float distancia_coma
 
 }
 
-void comando4(uint8_t forma_comando, float *v_contorno, Mat& im_control, boolean use_beep, uint16_t *fp_vxajustes, uint16_t *fp_vyajustes, Mat& im_ajuste, uint16_t ancho_screen, uint16_t alto_screen, uint16_t i_max_MAPA, uint16_t j_max_MAPA, uint16_t ip_inicial, uint16_t jp_inicial, float f_fps, SerialPort *serie_arduino  )
+void comandos(uint8_t forma_comando, float *v_contorno, Mat& im_control, boolean use_beep, uint16_t *fp_vxajustes, uint16_t *fp_vyajustes, Mat& im_ajuste, uint16_t ancho_screen, uint16_t alto_screen, uint16_t i_max_MAPA, uint16_t j_max_MAPA, uint16_t ip_inicial, uint16_t jp_inicial, float f_fps, SerialPort *serie_arduino  )
 {
     
     const uint16_t ALTO_PLAFON = 220;
@@ -711,23 +572,6 @@ void comando4(uint8_t forma_comando, float *v_contorno, Mat& im_control, boolean
     fase6 = fasep3-abs(360-fasep2+fasep3)/2;
     if (fase6<0) fase6=fase6+360;
     
-
-//    sprintf(texto,"fase1: %2.1f", fase1);
-//    putText(im_ajuste, texto, Point(round(ancho_screen/2),300), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2);         
-//    sprintf(texto,"fase2: %2.1f", fase2);
-//    putText(im_ajuste, texto, Point(round(ancho_screen/2),330), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2);         
-//    sprintf(texto,"fase3: %2.1f", fase3);
-//    putText(im_ajuste, texto, Point(round(ancho_screen/2),370), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2);         
-//    sprintf(texto,"fase4: %2.1f", fase4);
-//    putText(im_ajuste, texto, Point(round(ancho_screen/2),400), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2);         
-//    sprintf(texto,"fase5: %2.1f", fase5);
-//    putText(im_ajuste, texto, Point(round(ancho_screen/2),430), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2);         
-//    sprintf(texto,"fase6: %2.1f", fase6);
-//    putText(im_ajuste, texto, Point(round(ancho_screen/2),460), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2);         
-//
-//    
-//    imshow("ISO_TRACKER",im_ajuste);
-//    waitKey(0);
     
     if (forma_comando==1){
         nite++;
@@ -742,13 +586,8 @@ void comando4(uint8_t forma_comando, float *v_contorno, Mat& im_control, boolean
         
         distancia_contorno = *(v_contorno+uint16_t(ceil(fase*10)));
         
-//distancia_contorno =  30;
-              
-        
         if ( (distancia_movimiento>distancia_contorno) && (fase>=fase1) && (fase<fase2) ) {
 
-            //rectangle(im_ajuste, Point(ancho_screen/2-wcuadro/2, 20), Point(ancho_screen/2+wcuadro/2, 20+wcuadro), CV_RGB(255,255,0), 8);  // Dibujo rectángulo               
-       
             if (nz1==0){
                 nite_old=nite; nz1=1;
             }
@@ -778,8 +617,6 @@ void comando4(uint8_t forma_comando, float *v_contorno, Mat& im_control, boolean
         }
         else if ( (distancia_movimiento>distancia_contorno) && (fase>=fase2) && (fase<fase3) ) {
 
-           // rectangle(im_ajuste, Point(20, 20), Point(20+wcuadro, 20+wcuadro), CV_RGB(255,255,0), 8);  // Dibujo rectángulo               
-         //comando_realizado=0;
             z2++;
             z1=0; z3=0; z4=0; z5=0; z6=0; z7=0; z8=0; 
 
@@ -807,8 +644,6 @@ void comando4(uint8_t forma_comando, float *v_contorno, Mat& im_control, boolean
             fase1,fase2,fase3,fase4,fase5,fase6,jp_inicial,ip_inicial);
         }
         else if ( (distancia_movimiento>distancia_contorno) && (fase>=fase3) && (fase<fase4) ) {
-            
-           // rectangle(im_ajuste, Point(20, alto_screen-wcuadro-20), Point(20+wcuadro, alto_screen-20), CV_RGB(255,255,0), 8);  // Dibujo rectángulo               
             z3++;
             z1=0; z2=0; z4=0; z5=0; z6=0; z7=0; z8=0; 
 
@@ -824,23 +659,18 @@ void comando4(uint8_t forma_comando, float *v_contorno, Mat& im_control, boolean
                 pz=0;
 
             if (pz>pmin){
-            //if (z3>zmin) {
                 confirmo_comando=true;
                 nz1=0; nz2=0; nz4=0; nz5=0; nz6=0; nz7=0; nz8=0; 
                 comando_realizado=3; comando_movimiento=3; contador_no_movimiento=0;
             }
             else{
                 confirmo_comando=false;
-                //comando_realizado=0;
-                //rectangle(im_ajuste,  Point(ancho_screen-50-10, alto_screen-50-10), Point(ancho_screen-10, alto_screen-10), CV_RGB(255,255,0), 8);  // Dibujo rectángulo 
             }   
             dibujo_comando(confirmo_comando,fase,distancia_movimiento,v_contorno,im_ajuste,ancho_screen,alto_screen,
             fase1,fase2,fase3,fase4,fase5,fase6,jp_inicial,ip_inicial);
         }
         else if ( (distancia_movimiento>distancia_contorno) && (fase>=fase4) && (fase<fase5) ) {
             
-          // rectangle(im_ajuste, Point(ancho_screen/2-wcuadro/2, alto_screen-wcuadro-20), Point(ancho_screen/2+wcuadro/2, alto_screen-20), CV_RGB(255,255,0), 8);  // Dibujo rectángulo               
-       
             z4++;
 
             if (nz4==0){
@@ -873,9 +703,6 @@ void comando4(uint8_t forma_comando, float *v_contorno, Mat& im_control, boolean
             if (fase6>fase5){
                 if ( (distancia_movimiento>distancia_contorno) && (fase>=fase5) && (fase<fase6) ) {
                                 
-                    //comando_realizado=0;
-                   // rectangle(im_ajuste, Point(ancho_screen-wcuadro-20, alto_screen-wcuadro-20), Point(ancho_screen-20, alto_screen-20), CV_RGB(255,255,0), 8);  // Dibujo rectángulo               
-        
                     z5++;
                     z1=0; z2=0; z3=0; z4=0; z6=0; z7=0; z8=0; 
 
@@ -903,10 +730,6 @@ void comando4(uint8_t forma_comando, float *v_contorno, Mat& im_control, boolean
                     fase1,fase2,fase3,fase4,fase5,fase6,jp_inicial,ip_inicial);
                 } 
                 else if ( (distancia_movimiento>distancia_contorno) && ( (fase>=fase6) || (fase<fase1) ) ) {
-
-                    //comando_realizado=0;
-                   // rectangle(im_ajuste, Point(ancho_screen-wcuadro-20, 20), Point(ancho_screen-20, 20+wcuadro), CV_RGB(255,255,0), 8);  // Dibujo rectángulo
-
                     z6++;
                     z1=0; z2=0; z3=0; z4=0; z5=0; z7=0; z8=0;  
 
@@ -1157,22 +980,7 @@ void comando4(uint8_t forma_comando, float *v_contorno, Mat& im_control, boolean
                 waitKey(800);
             }
         }
-        
-//        sprintf(texto,"COMANDO_REALIZADO : %d", comando_realizado);
-//        putText(im_ajuste, texto, Point(round(ancho_screen/2),600), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2);         
-//        sprintf(texto,"COMANDO_REALIZADO_OLD : %d", comando_realizado_old);
-//        putText(im_ajuste, texto, Point(round(ancho_screen/2),630), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2);         
-//    
-//        
-//        
-//        sprintf(texto,"comando_realizado : %d", comando_realizado);
-//        putText(im_ajuste, texto, Point(round(ancho_screen/2),850), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2);  
-//        sprintf(texto,"pz : %2.1f", pz);
-//        putText(im_ajuste, texto, Point(round(ancho_screen/2),880), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2); 
-//        sprintf(texto,"nz8 : %d", nz8);
-//        putText(im_ajuste, texto, Point(round(ancho_screen/2),910), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2);             
-        
-                
+         
     }        
     else if (forma_comando==2){
         
@@ -1683,601 +1491,3 @@ float fasegrados(float im, float re){
     return fase;
 }
     
-
-void comandos(uint8_t forma_comando, Mat& im_ajuste, uint16_t ancho_screen, uint16_t alto_screen, uint16_t i_max_MAPA, uint16_t j_max_MAPA, uint16_t ip_inicial, uint16_t jp_inicial, SerialPort *serie_arduino, float f_fps ){
-
-//    uint16_t mx=5;
-//    uint16_t my=3;
-    //uint8_t zmin=5;
-    uint16_t zmin;
-  
-    zmin=round(1.3*f_fps);
-            
-    const double pi = 3.1415926535897;
-    const uint8_t pmin=70;
-
-    //uint8_t min_diagonal=35;
-    //uint8_t min_diagonal=25;
-    uint8_t min_diagonal=15;
-    //uint8_t min_superior=25;
-    uint8_t min_superior=20;
-    uint8_t min_inferior=15;
-    //uint8_t min_lateral=45;
-    uint8_t min_lateral=35;
-        
-              
-    float distancia_movimiento, fase, im, re;
-    
-    
-    
-    float pz;
-        
-    
-    
-    //uint8_t comando_realizado;
-    
-    uint8_t comando_realizado, comando_realizado_old, comando_anterior, comando_movimiento, comando_movimiento_old, contador_no_movimiento;
-    
-    int i, j;
-
-    static uint8_t z1=0,z2=0,z3=0,z4=0,z5=0,z6=0,z7=0,z8=0;
-    static uint8_t nz1=0, nz2=0, nz3=0, nz4=0, nz5=0, nz6=0, nz7=0, nz8=0;
-    static uint16_t nite_old, nite;
-    static uint8_t conta_centro=0;
-    
-    static uint16_t zi, zj;
-    float dz;
-    
-    char texto[50];
-    
-    float deltaj;
-    float deltai;
-    uint8_t wcuadro=200;
-
-    
-    nite++;
-    if (nite>50000) nite=0;
-    
-    
-    if (forma_comando==1){ 
-//        if ( (j_max_MAPA<(x1+mx)) && ( i_max_MAPA<(y1+my)) )
-//            rectangle(im_ajuste, Point(30, 30), Point(30+50, 30+50), CV_RGB(255,255,0), 8);  // Dibujo rectángulo 
-//        else if ( (j_max_MAPA<(x2+mx)) && ( i_max_MAPA>(y2-my)) )
-//            rectangle(im_ajuste,  Point(30, alto_screen-50-10), Point(30+50, alto_screen-10), CV_RGB(255,255,0), 8);  // Dibujo rectángulo                       
-//        else if ( (j_max_MAPA>(x3-mx)) && ( i_max_MAPA<(y3+my)) )
-//            rectangle(im_ajuste,  Point(ancho_screen-50-10, 30), Point(ancho_screen-10, 30+50), CV_RGB(255,255,0), 8);  // Dibujo rectángulo                
-//        else if ( (j_max_MAPA>(x4-mx)) && ( i_max_MAPA>(y4-my)) )
-//            rectangle(im_ajuste,  Point(ancho_screen-50-10, alto_screen-50-10), Point(ancho_screen-10, alto_screen-10), CV_RGB(255,255,0), 8);  // Dibujo rectángulo           
-//        else
-//            rectangle(im_ajuste, Point(ancho_screen/2, alto_screen/2), Point(ancho_screen/2+50, alto_screen/2+50), CV_RGB(255,255,0), 8);  // Dibujo rectángulo 
-    }   
-    else if (forma_comando==2) {
-
-        float distancia_movimiento= sqrt( (j_max_MAPA-jp_inicial)*(j_max_MAPA-jp_inicial)+(i_max_MAPA-ip_inicial)*(i_max_MAPA-ip_inicial) );
-
-        if (distancia_movimiento>40){
-        //if (distancia_movimiento>10){
-            if (j_max_MAPA<jp_inicial) 
-                if (i_max_MAPA<ip_inicial){
-                    rectangle(im_ajuste, Point(20, 20), Point(20+wcuadro, 20+wcuadro), CV_RGB(255,255,0), 8);  // Dibujo rectángulo 
-                    z1++;
-                    z2=0; z3=0; z4=0;
-                    if (z1>zmin)
-                        //rectangle(im_ajuste, Point(30, 30), Point(30+50, 30+50), CV_RGB(0,255,0), 8);  // Dibujo rectángulo 
-                        comando_realizado=1;
-                    else{
-                        comando_realizado=0;
-                       // rectangle(im_ajuste, Point(30, 30), Point(30+50, 30+50), CV_RGB(255,255,0), 8);  // Dibujo rectángulo
-                    }
-                }
-                else {
-                    rectangle(im_ajuste, Point(20, alto_screen-wcuadro-20), Point(20+wcuadro, alto_screen-20), CV_RGB(255,255,0), 8);  // Dibujo rectángulo                            
-                    z2++;
-                    z1=0; z3=0; z4=0;
-                    if (z2>zmin)
-                        //rectangle(im_ajuste,  Point(30, alto_screen-50-10), Point(30+50, alto_screen-10), CV_RGB(0,255,0), 8);  // Dibujo rectángulo 
-                        comando_realizado=2;
-                    else{
-                        comando_realizado=0;
-                       // rectangle(im_ajuste,  Point(30, alto_screen-50-10), Point(30+50, alto_screen-10), CV_RGB(255,255,0), 8);  // Dibujo rectángulo 
-                    }
-                }
-            if (j_max_MAPA>jp_inicial) 
-                if (i_max_MAPA<ip_inicial) {
-                    rectangle(im_ajuste, Point(ancho_screen-wcuadro-20, 20), Point(ancho_screen-20, 20+wcuadro), CV_RGB(255,255,0), 8);  // Dibujo rectángulo
-                    z3++;
-                    z1=0; z2=0; z4=0;
-                    if (z3>zmin)
-                        comando_realizado=3;
-                        //rectangle(im_ajuste,  Point(ancho_screen-50-10, 30), Point(ancho_screen-10, 30+50), CV_RGB(0,255,0), 8);  // Dibujo rectángulo  
-                    else{
-                        comando_realizado=0;
-                       // rectangle(im_ajuste,  Point(ancho_screen-50-10, 30), Point(ancho_screen-10, 30+50), CV_RGB(255,255,0), 8);  // Dibujo rectángulo  
-                    }
-                }
-                else {
-                    rectangle(im_ajuste, Point(ancho_screen-wcuadro-20, alto_screen-wcuadro-20), Point(ancho_screen-20, alto_screen-20), CV_RGB(255,255,0), 8);  // Dibujo rectángulo                             
-                    z4++;
-                    z1=0; z2=0; z3=0; 
-                    if (z4>zmin)
-                        comando_realizado=4;
-                        //rectangle(im_ajuste,  Point(ancho_screen-50-10, alto_screen-50-10), Point(ancho_screen-10, alto_screen-10), CV_RGB(0,255,0), 8);  // Dibujo rectángulo 
-                    else{
-                        comando_realizado=0;
-                     //   rectangle(im_ajuste,  Point(ancho_screen-50-10, alto_screen-50-10), Point(ancho_screen-10, alto_screen-10), CV_RGB(255,255,0), 8);  // Dibujo rectángulo  
-                    }
-                }
-        }
-        else {
-          //  rectangle(im_ajuste, Point(ancho_screen/2, alto_screen/2), Point(ancho_screen/2+50, alto_screen/2+50), CV_RGB(255,255,0), 8);  // Dibujo rectángulo 
-            z1=0; z2=0; z3=0; z4=0;
-            comando_realizado=0;
-        }
-
-        switch(comando_realizado){
-            case 1: 
-                serie_arduino->writeSerialPort("1", 1);
-                for (i=1; i<alto_screen/2; i++){
-                    for (j=1; j<ancho_screen/2; j++)
-                        im_ajuste.at<Vec3b>(i, j) = Vec3b(0, 255, 0);
-                }
-
-                    ; break;
-            case 2: 
-                serie_arduino->writeSerialPort("3", 1);
-                for (i=alto_screen/2; i<alto_screen; i++){
-                    for (j=1; j<ancho_screen/2; j++)
-                        im_ajuste.at<Vec3b>(i, j) = Vec3b(0, 255, 0);
-                }
-                ; break;
-            case 3: 
-                serie_arduino->writeSerialPort("7", 1);
-                for (i=1; i<alto_screen/2; i++){
-                    for (j=ancho_screen/2; j<ancho_screen; j++)
-                        im_ajuste.at<Vec3b>(i, j) = Vec3b(0, 255, 0);
-                }
-                ; break;
-            case 4: 
-                serie_arduino->writeSerialPort("5", 1);
-                for (i=alto_screen/2; i<alto_screen; i++){
-                    for (j=ancho_screen/2; j<ancho_screen; j++)
-                        im_ajuste.at<Vec3b>(i, j) = Vec3b(0, 255, 0);
-                }
-                ; break;
-            default:
-                serie_arduino->writeSerialPort("0", 1);
-        }               
-    }
-    else if (forma_comando==3){
-
-        distancia_movimiento= sqrt( (j_max_MAPA-jp_inicial)*(j_max_MAPA-jp_inicial)+(i_max_MAPA-ip_inicial)*(i_max_MAPA-ip_inicial) );
-
-        if (distancia_movimiento>10) {
-
-            im = ip_inicial-i_max_MAPA;
-            re = j_max_MAPA-jp_inicial;
-
-            if ( (re==0) && (im>0) )  fase=pi/2;
-            else if ( (re==0) && (im<0) ) fase = 3*pi/2;
-            else if ( (re>0) && (im>0)  ) fase = atan(im/re); // 1er cuadrante
-            else if ( (re<0) && (im>0)  ) fase = atan(im/re)+pi; // 2do cuadrante
-            else if ( (re<0) && (im<0)  ) { // 3er cuadrante
-                fase = atan(im/re)-pi; 
-                fase = 2*pi+fase; // hago positiva la fase
-            }
-            else if ( (re>0) && (im<0)  ) { // 4to cuadrante
-                fase = atan(im/re); 
-                fase = 2*pi+fase; // hago positiva la fase
-            }
-            fase=fase*180/pi;
-
-            comando_realizado=0;    
-            if ( (distancia_movimiento>min_diagonal) && (fase>20) && (fase<60) ) {
-                
-                rectangle(im_ajuste, Point(ancho_screen-wcuadro-20, 20), Point(ancho_screen-20, 20+wcuadro), CV_RGB(255,255,0), 8);  // Dibujo rectángulo
-                
-                               
-                if (nz1==0){
-                    nite_old=nite; nz1=1;
-                }
-                else
-                    nz1++;
-                
-                if ((abs(nite-nite_old)+1)>zmin)
-                    pz=100*nz1/(abs(nite-nite_old)+1);
-                else
-                    pz=0;
-                                      
-                
-                z1++;
-//                if (z1==0){
-//                    zi=i_max_MAPA; 
-//                    zj=j_max_MAPA;
-//                    z1=1;
-//                }
-//                else {
-//                    deltaj=(j_max_MAPA-zj);
-//                    deltai=(i_max_MAPA-zi);
-//                    dz= sqrt( (j_max_MAPA-zj)*(j_max_MAPA-zj) + (i_max_MAPA-zi)*(i_max_MAPA-zi)  );
-//                    if (dz<=4) z1++;
-//                }                
-                z2=0; z3=0; z4=0; z5=0; z6=0; z7=0; z8=0; 
-                
-                if (pz>pmin) {
-                //if (z1>zmin){
-                    nz2=0; nz3=0; nz4=0; nz5=0; nz6=0; nz7=0; nz8=0; 
-                    comando_realizado=1;
-                    comando_movimiento=1;
-                    contador_no_movimiento=0;   
-                }
-                else{
-                    //comando_realizado=0;
-                    
-                    //rectangle(im_ajuste, Point(30, 30), Point(30+50, 30+50), CV_RGB(255,255,0), 8);  // Dibujo rectángulo
-                }
-            }
-            else if ( (distancia_movimiento>min_superior) && (fase>60) && (fase<120) ) {
-                
-                rectangle(im_ajuste, Point(ancho_screen/2-wcuadro/2, 20), Point(ancho_screen/2+wcuadro/2, 20+wcuadro), CV_RGB(255,255,0), 8);  // Dibujo rectángulo               
-                //comando_realizado=0;
-                z2++;
-                z1=0; z3=0; z4=0; z5=0; z6=0; z7=0; z8=0; 
-                
-                if (nz2==0){
-                    nite_old=nite; nz2=1;
-                }
-                else
-                    nz2++;
-                
-                if ((abs(nite-nite_old)+1)>zmin)
-                    pz=100*nz2/(abs(nite-nite_old)+1);
-                else
-                    pz=0;
-                
-                if (pz>pmin){
-                //if (z2>zmin){
-                    nz1=0; nz3=0; nz4=0; nz5=0; nz6=0; nz7=0; nz8=0; 
-                    comando_realizado=2; comando_movimiento=2; contador_no_movimiento=0;
-                }
-                else{
-                   // comando_realizado=0;
-                   // rectangle(im_ajuste,  Point(30, alto_screen-50-10), Point(30+50, alto_screen-10), CV_RGB(255,255,0), 8);  // Dibujo rectángulo 
-                }   
-            }
-            else if ( (distancia_movimiento>min_diagonal) && (fase>120) && (fase<160) ) {
-                
-                rectangle(im_ajuste, Point(20, 20), Point(20+wcuadro, 20+wcuadro), CV_RGB(255,255,0), 8);  // Dibujo rectángulo               
-              
-                //comando_realizado=0;
-                z3++;
-                z1=0; z2=0; z4=0; z5=0; z6=0; z7=0; z8=0; 
-                
-                if (nz3==0){
-                    nite_old=nite; nz3=1;
-                }
-                else
-                    nz3++;
-                
-                if ((abs(nite-nite_old)+1)>zmin)
-                    pz=100*nz3/(abs(nite-nite_old)+1);
-                else
-                    pz=0;
-                
-                if (pz>pmin){
-                //if (z3>zmin) {
-                    nz1=0; nz2=0; nz4=0; nz5=0; nz6=0; nz7=0; nz8=0; 
-                    comando_realizado=3; comando_movimiento=3; contador_no_movimiento=0;
-                }
-                else{
-                    //comando_realizado=0;
-                    //rectangle(im_ajuste,  Point(ancho_screen-50-10, alto_screen-50-10), Point(ancho_screen-10, alto_screen-10), CV_RGB(255,255,0), 8);  // Dibujo rectángulo 
-                }   
-            }
-            else if ( (distancia_movimiento>min_lateral) && (fase>160) && (fase<200) ) {
-                //comando_realizado=0;
-                rectangle(im_ajuste, Point(20, alto_screen/2-wcuadro/2), Point(20+wcuadro, alto_screen/2+wcuadro/2), CV_RGB(255,255,0), 8);  // Dibujo rectángulo               
-              
-                z4++;
-                
-                if (nz4==0){
-                    nite_old=nite; nz4=1;
-                }
-                else
-                    nz4++;
-                
-                if ((abs(nite-nite_old)+1)>zmin)
-                    pz=100*nz4/(abs(nite-nite_old)+1);
-                else
-                    pz=0;
-                 
-               // }
-//                if (z4==0){
-//                    zi=i_max_MAPA; 
-//                    zj=j_max_MAPA;
-//                }
-//                else {
-//                    dz= sqrt( (j_max_MAPA-zj)*(j_max_MAPA-zj) + (i_max_MAPA-zi)*(i_max_MAPA-zi)  );
-//                    if (dz<=4) z4++;
-//                }
-                
-                
-                z1=0; z2=0; z3=0; z5=0; z6=0; z7=0; z8=0; 
-                if (pz>pmin){
-                //if (z4>zmin) {
-                    nz1=0; nz2=0; nz3=0; nz5=0; nz6=0; nz7=0; nz8=0;
-                    comando_realizado=4; comando_movimiento=4; contador_no_movimiento=0;
-                }
-                else{
-                    //comando_realizado=0;
-                    //rectangle(im_ajuste,  Point(ancho_screen-50-10, 30), Point(ancho_screen-10, 30+50), CV_RGB(255,255,0), 8);  // Dibujo rectángulo  
-                }   
-            }
-            else if ( (distancia_movimiento>min_diagonal) && (fase>200) && (fase<250) ) {
-                //comando_realizado=0;
-                rectangle(im_ajuste, Point(20, alto_screen-wcuadro-20), Point(20+wcuadro, alto_screen-20), CV_RGB(255,255,0), 8);  // Dibujo rectángulo               
-              
-                z5++;
-                z1=0; z2=0; z3=0; z4=0; z6=0; z7=0; z8=0; 
-                
-                if (nz5==0){
-                    nite_old=nite; nz5=1;
-                }
-                else
-                    nz5++;
-                
-                if ((abs(nite-nite_old)+1)>zmin)
-                    pz=100*nz5/(abs(nite-nite_old)+1);
-                else
-                    pz=0;
-                
-                if (pz>pmin){
-                //if (z5>zmin) {
-                    nz1=0; nz2=0; nz3=0; nz4=0; nz6=0; nz7=0; nz8=0;
-                    comando_realizado=5; comando_movimiento=5; contador_no_movimiento=0;
-                }
-                else{
-
-                    //comando_realizado=0;
-                    //rectangle(im_ajuste,  Point(ancho_screen-50-10, 30), Point(ancho_screen-10, 30+50), CV_RGB(255,255,0), 8);  // Dibujo rectángulo  
-                }   
-            }                    
-            else if ( (distancia_movimiento>min_inferior) && (fase>250) && (fase<290) ) {
-                //comando_realizado=0;
-                rectangle(im_ajuste, Point(ancho_screen/2-wcuadro/2, alto_screen-wcuadro-20), Point(ancho_screen/2+wcuadro/2, alto_screen-20), CV_RGB(255,255,0), 8);  // Dibujo rectángulo               
-              
-                z6++;
-                z1=0; z2=0; z3=0; z4=0; z5=0; z7=0; z8=0;
-                
-                if (nz6==0){
-                    nite_old=nite; nz6=1;
-                }
-                else
-                    nz6++;
-                
-                if ((abs(nite-nite_old)+1)>zmin)
-                    pz=100*nz6/(abs(nite-nite_old)+1);
-                else
-                    pz=0;
-                
-                if (pz>pmin){
-                //if (z6>zmin) {
-                    nz1=0; nz2=0; nz3=0; nz4=0; nz5=0; nz7=0; nz8=0;
-                    comando_realizado=6; comando_movimiento=6; contador_no_movimiento=0;
-                }
-                else{
-                    //comando_realizado=0;
-                    //rectangle(im_ajuste,  Point(ancho_screen-50-10, 30), Point(ancho_screen-10, 30+50), CV_RGB(255,255,0), 8);  // Dibujo rectángulo  
-                }   
-            }
-            else if ( (distancia_movimiento>min_diagonal) && (fase>290) && (fase<340) ) {
-                //comando_realizado=0;
-                rectangle(im_ajuste, Point(ancho_screen-wcuadro-20, alto_screen-wcuadro-20), Point(ancho_screen-20, alto_screen-20), CV_RGB(255,255,0), 8);  // Dibujo rectángulo               
-              
-                z7++;
-                z1=0; z2=0; z3=0; z4=0; z5=0; z6=0; z8=0;  
-                
-                if (nz7==0){
-                    nite_old=nite; nz7=1;
-                }
-                else
-                    nz7++;
-                
-                if ((abs(nite-nite_old)+1)>zmin)
-                    pz=100*nz7/(abs(nite-nite_old)+1);
-                else
-                    pz=0;
-                
-                if (pz>pmin){
-                //if (z7>zmin) {
-                    nz1=0; nz2=0; nz3=0; nz4=0; nz5=0; nz6=0; nz8=0;
-                    comando_realizado=7; comando_movimiento=7; contador_no_movimiento=0;
-                }
-                else{
-                    //comando_realizado=0;
-                    //rectangle(im_ajuste,  Point(ancho_screen-50-10, 30), Point(ancho_screen-10, 30+50), CV_RGB(255,255,0), 8);  // Dibujo rectángulo  
-                }   
-            }
-            //else if ( (fase>340)  ) {
-            else if ( (distancia_movimiento>min_lateral) && ( (fase>340) || (fase<20) ) ) {
-                //comando_realizado=0;
-                rectangle(im_ajuste, Point(ancho_screen-wcuadro-20, alto_screen/2-wcuadro/2), Point(ancho_screen-20, alto_screen/2+wcuadro/2), CV_RGB(255,255,0), 8);  // Dibujo rectángulo               
-              
-                z8++;
-                z1=0; z2=0; z3=0; z4=0; z5=0; z6=0; z7=0; 
-                
-                if (nz8==0){
-                    nite_old=nite; nz8=1;
-                }
-                else
-                    nz8++;
-                
-                if ((abs(nite-nite_old)+1)>zmin)
-                    pz=100*nz8/(abs(nite-nite_old)+1);
-                else
-                    pz=0;
-                
-                if (pz>pmin){
-                //if (z8>zmin){
-                    nz1=0; nz2=0; nz3=0; nz4=0; nz5=0; nz6=0; nz7=0; 
-                    comando_realizado=8; comando_movimiento=8; contador_no_movimiento=0;
-  
-                }
-                else{
-                    //comando_realizado=0;
-                    //rectangle(im_ajuste,  Point(ancho_screen-50-10, 30), Point(ancho_screen-10, 30+50), CV_RGB(255,255,0), 8);  // Dibujo rectángulo  
-                }   
-            } 
-        }
-        else
-        {
-            //rectangle(im_ajuste, Point(ancho_screen/2, alto_screen/2), Point(ancho_screen/2+50, alto_screen/2+50), CV_RGB(255,255,0), 8);  // Dibujo rectángulo 
-            z1=0; z2=0; z3=0; z4=0; z5=0; z6=0; z7=0; z8=0; 
-            comando_realizado=0;
-//            comando_movimiento=0;
-            
-            if (comando_realizado_old==0)
-                conta_centro++;
-            
-            comando_realizado_old=comando_realizado;
-            
-            if (conta_centro==4){
-                conta_centro=0;
-                nz1=0; nz2=0; nz3=0; nz4=0; nz5=0; nz6=0; nz7=0; nz8=0;
-            }
-                
-        }
-
-        uint16_t altura=500;
-        uint16_t ancho=500;
-        switch(comando_realizado){
-            case 1: 
-                serie_arduino->writeSerialPort("7", 1);
-                for (i=1; i<altura; i++){
-                    for (j=(ancho_screen-ancho); j<ancho_screen; j++)
-                        im_ajuste.at<Vec3b>(i, j) = Vec3b(0, 255, 0);
-                }
-                ; break;
-                
-                
-            case 2: 
-                serie_arduino->writeSerialPort("8", 1);
-                for (i=1; i<altura; i++){
-                    for (j=(ancho_screen/2-ancho/2); j<(ancho_screen/2+ancho/2); j++)
-                        im_ajuste.at<Vec3b>(i, j) = Vec3b(0, 255, 0);
-                }
-
-     
-             //   z1=0; z2=0; z3=0; z4=0; z5=0; z6=0; z7=0; z8=0; 
-                break;
-            case 3: 
-                serie_arduino->writeSerialPort("1", 1);
-                for (i=1; i<altura; i++){
-                    for (j=1; j<ancho; j++)
-                        im_ajuste.at<Vec3b>(i, j) = Vec3b(0, 255, 0);
-                }
-                ; break;
-            case 4: 
-                serie_arduino->writeSerialPort("2", 1);
-                for (i=(alto_screen/2-altura/2); i<(alto_screen/2+altura/2); i++){
-                    for (j=1; j<ancho; j++)
-                        im_ajuste.at<Vec3b>(i, j) = Vec3b(0, 255, 0);
-                }
-
-              //  z1=0; z2=0; z3=0; z4=0; z5=0; z6=0; z7=0; z8=0; 
-                break;
-            case 5: 
-                serie_arduino->writeSerialPort("3", 1);
-                for (i=(alto_screen-altura); i<(alto_screen); i++){
-                    for (j=1; j<ancho; j++)
-                        im_ajuste.at<Vec3b>(i, j) = Vec3b(0, 255, 0);
-                }
-                ; break;
-            case 6: 
-                serie_arduino->writeSerialPort("4", 1);
-                for (i=(alto_screen-altura); i<(alto_screen); i++){
-                    for (j=(ancho_screen/2-ancho/2); j<(ancho_screen/2+ancho/2); j++)
-                        im_ajuste.at<Vec3b>(i, j) = Vec3b(0, 255, 0);
-                }
-
-              //  z1=0; z2=0; z3=0; z4=0; z5=0; z6=0; z7=0; z8=0; 
-                break;
-            case 7: 
-                serie_arduino->writeSerialPort("5", 1);
-                for (i=(alto_screen-altura); i<(alto_screen); i++){
-                    for (j=(ancho_screen-ancho); j<ancho_screen; j++)
-                        im_ajuste.at<Vec3b>(i, j) = Vec3b(0, 255, 0);
-                }
-                break;
-            case 8: 
-                serie_arduino->writeSerialPort("6", 1);
-                for (i=(alto_screen/2-altura/2); i<(alto_screen/2+altura/2); i++){
-                    for (j=(ancho_screen-ancho); j<ancho_screen; j++)
-                        im_ajuste.at<Vec3b>(i, j) = Vec3b(0, 255, 0);
-                }
-
-              //  z1=0; z2=0; z3=0; z4=0; z5=0; z6=0; z7=0; z8=0; 
-                break;      
-            default:
-                serie_arduino->writeSerialPort("0", 1);
-        }
-
-        if (contador_no_movimiento<20)
-            contador_no_movimiento++;
-
-
-        if (comando_movimiento!=comando_anterior) {comando_movimiento_old=comando_movimiento;} // comando_movimiento no tiene en cuenta movimiento=0;
-
-        comando_anterior=comando_movimiento;
-
-       // z1=0; z2=0; z3=0; z4=0; z5=0; z6=0; z7=0; z8=0; 
-    }
-
-    
-    
-    
-    sprintf(texto,"z1: %d", z1);
-    putText(im_ajuste, texto, Point(round(ancho_screen/2),120), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2);
-    
-    sprintf(texto,"dz: %.1f", dz);
-    putText(im_ajuste, texto, Point(round(ancho_screen/2),150), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2);
-    
-//    sprintf(texto,"deltaj: %.1f", deltaj);
-//    putText(im_ajuste, texto, Point(round(ancho_screen/2),180), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2);
-//
-//    sprintf(texto,"deltai: %.1f", deltai);
-//    putText(im_ajuste, texto, Point(round(ancho_screen/2),210), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2);    
-//
-//    sprintf(texto,"zi - zj: %d - %d", zi, zj);
-//    putText(im_ajuste, texto, Point(round(ancho_screen/2),230), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2);   
-    
-//    sprintf(texto,"zmin : %d", zmin);
-//    putText(im_ajuste, texto, Point(round(ancho_screen/2),180), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2);   
-//    
-//    sprintf(texto,"comando realizado : %d", comando_realizado);
-//    putText(im_ajuste, texto, Point(round(ancho_screen/2),210), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2);       
-    
-    //if (comando_realizado==1){
-        
-        sprintf(texto,"nz1 : %d", nz1);
-        putText(im_ajuste, texto, Point(round(ancho_screen/2),180), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2);   
-    
-        sprintf(texto,"comando realizado : %d", comando_realizado);
-        putText(im_ajuste, texto, Point(round(ancho_screen/2),210), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2);   
-    
-        sprintf(texto,"nite - nite_old: %d", abs(nite-nite_old)+1);
-        putText(im_ajuste, texto, Point(round(ancho_screen/2),230), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2);   
-        
-        sprintf(texto,"pz : %.1f", pz);
-        putText(im_ajuste, texto, Point(round(ancho_screen/2),250), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2);   
-        
-        sprintf(texto,"zmin : %d", zmin);
-        putText(im_ajuste, texto, Point(round(ancho_screen/2),280), FONT_HERSHEY_SIMPLEX, 1, CV_RGB(255,255,0), 2);   
-        
-//        while(1){
-//        imshow("ISO_TRACKER",im_ajuste);
-//        if(waitKey(1) >= 0) break;
-//        }
-//        while(1){};
-   // }
-    
-}

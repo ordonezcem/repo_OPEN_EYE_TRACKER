@@ -25,7 +25,7 @@ using namespace cv;
 
 void conv2d_prueba( float *fp_data, Mat& fp_im_dst, uint16_t wim, uint16_t him, uint8_t wk, float *fp_kernel);
 
-void mapadecentros_prueba( Mat& imCONV, float *fp_im_src, float *fp_MAPA, float *fp_FX, float *fp_FY, float *fp_FXX, float *fp_FYY, float *fp_FXY, 
+void mapadecentros_completo( Mat& imCONV, float *fp_im_src, float *fp_MAPA, float *fp_FX, float *fp_FY, float *fp_FXX, float *fp_FYY, float *fp_FXY, 
      uint16_t wim, uint16_t him, float *fp_ph_gauss1, float *fp_ph_gauss2, float *fp_pd1, float *fp_pd1n, float *fp_pp, float *fp_ppn, float *fp_pd2, 
      uint16_t rmin, uint16_t rmax, uint16_t *fp_imax, uint16_t *fp_jmax, float *max_MAPA  );
 
@@ -40,9 +40,7 @@ void dibujo_cruz(Mat& fp_im, uint16_t wim, uint16_t him, uint16_t posx, uint16_t
 void conv2d( float *fp_data_src, float *fp_data_dst, Mat& fp_im_dst, uint16_t wim, uint16_t him, uint8_t wk, float *fp_kernel);
 
 void findmax( float *fp_data, uint16_t wim, uint16_t him, uint16_t *fp_imax, uint16_t *fp_jmax, float *fp_max );
-    
-//void delay(int secs);
-    
+      
     
 bool validacion(uint16_t imax, uint16_t jmax, float maxMAPA);
 

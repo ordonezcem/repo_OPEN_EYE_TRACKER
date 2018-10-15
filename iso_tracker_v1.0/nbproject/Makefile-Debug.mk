@@ -59,11 +59,11 @@ LDLIBSOPTIONS=-L/D/opencv_mybuild/opencv-3.4.1/creado_cristian/install/x86/mingw
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/iso_tracker_img_v73.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/iso_tracker_v1.0.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/iso_tracker_img_v73.exe: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/iso_tracker_v1.0.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/iso_tracker_img_v73 ${OBJECTFILES} ${LDLIBSOPTIONS} -static-libgcc -static-libstdc++
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/iso_tracker_v1.0 ${OBJECTFILES} ${LDLIBSOPTIONS} -static-libgcc -static-libstdc++
 
 ${OBJECTDIR}/LIB_ISOPHOTES.o: LIB_ISOPHOTES.cpp
 	${MKDIR} -p ${OBJECTDIR}

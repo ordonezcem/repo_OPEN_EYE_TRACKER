@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=MinGW_1-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/MinGW_1-Windows
-CND_ARTIFACT_NAME_Debug=iso_tracker_img_v73
-CND_ARTIFACT_PATH_Debug=dist/Debug/MinGW_1-Windows/iso_tracker_img_v73
+CND_ARTIFACT_NAME_Debug=iso_tracker_v1.0
+CND_ARTIFACT_PATH_Debug=dist/Debug/MinGW_1-Windows/iso_tracker_v1.0
 CND_PACKAGE_DIR_Debug=dist/Debug/MinGW_1-Windows/package
-CND_PACKAGE_NAME_Debug=isotrackerimgv73.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/MinGW_1-Windows/package/isotrackerimgv73.tar
+CND_PACKAGE_NAME_Debug=isotrackerv1.0.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/MinGW_1-Windows/package/isotrackerv1.0.tar
 # Release configuration
 CND_PLATFORM_Release=MinGW_1-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/MinGW_1-Windows
-CND_ARTIFACT_NAME_Release=iso_tracker_img_v73
-CND_ARTIFACT_PATH_Release=dist/Release/MinGW_1-Windows/iso_tracker_img_v73
+CND_ARTIFACT_NAME_Release=iso_tracker_v1.0
+CND_ARTIFACT_PATH_Release=dist/Release/MinGW_1-Windows/iso_tracker_v1.0
 CND_PACKAGE_DIR_Release=dist/Release/MinGW_1-Windows/package
-CND_PACKAGE_NAME_Release=isotrackerimgv73.tar
-CND_PACKAGE_PATH_Release=dist/Release/MinGW_1-Windows/package/isotrackerimgv73.tar
+CND_PACKAGE_NAME_Release=isotrackerv1.0.tar
+CND_PACKAGE_PATH_Release=dist/Release/MinGW_1-Windows/package/isotrackerv1.0.tar
 #
 # include compiler specific variables
 #

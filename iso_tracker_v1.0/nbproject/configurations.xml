@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>LIB_ISOPHOTES.h</itemPath>
+      <itemPath>SerialPort.h</itemPath>
+      <itemPath>comandos.h</itemPath>
+      <itemPath>defs.h</itemPath>
+      <itemPath>defs_globales.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>LIB_ISOPHOTES.cpp</itemPath>
+      <itemPath>SerialPort.cpp</itemPath>
+      <itemPath>comandos.cpp</itemPath>
+      <itemPath>main.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <incDir>
+            <pElem>D:/opencv_mybuild/opencv-3.4.1/creado_cristian/install/include</pElem>
+          </incDir>
+        </ccTool>
+        <linkerTool>
+          <linkerAddLib>
+            <pElem>D:\opencv_mybuild\opencv-3.4.1\creado_cristian\install\x86\mingw\bin</pElem>
+            <pElem>D:/opencv_mybuild/opencv-3.4.1/creado_cristian/install/x64/mingw/bin</pElem>
+          </linkerAddLib>
+          <linkerLibItems>
+            <linkerLibLibItem>opencv_calib3d341</linkerLibLibItem>
+            <linkerLibLibItem>opencv_core341</linkerLibLibItem>
+            <linkerLibLibItem>opencv_dnn341</linkerLibLibItem>
+            <linkerLibLibItem>opencv_features2d341</linkerLibLibItem>
+            <linkerLibLibItem>opencv_flann341</linkerLibLibItem>
+            <linkerLibLibItem>opencv_highgui341</linkerLibLibItem>
+            <linkerLibLibItem>opencv_imgcodecs341</linkerLibLibItem>
+            <linkerLibLibItem>opencv_imgproc341</linkerLibLibItem>
+            <linkerLibLibItem>opencv_ml341</linkerLibLibItem>
+            <linkerLibLibItem>opencv_objdetect341</linkerLibLibItem>
+            <linkerLibLibItem>opencv_photo341</linkerLibLibItem>
+            <linkerLibLibItem>opencv_shape341</linkerLibLibItem>
+            <linkerLibLibItem>opencv_stitching341</linkerLibLibItem>
+            <linkerLibLibItem>opencv_superres341</linkerLibLibItem>
+            <linkerLibLibItem>opencv_video341</linkerLibLibItem>
+            <linkerLibLibItem>opencv_videoio341</linkerLibLibItem>
+            <linkerLibLibItem>opencv_videostab341</linkerLibLibItem>
+            <linkerLibLibItem>opencv_ffmpeg341_64</linkerLibLibItem>
+          </linkerLibItems>
+          <commandLine>-static-libgcc -static-libstdc++</commandLine>
+        </linkerTool>
+      </compileType>
+      <item path="LIB_ISOPHOTES.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="LIB_ISOPHOTES.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SerialPort.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SerialPort.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="comandos.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="comandos.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="defs.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="defs_globales.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <incDir>
+            <pElem>../../../../../opencv/creado/install/include</pElem>
+          </incDir>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <linkerTool>
+          <linkerAddLib>
+            <pElem>../../../../../opencv/creado/install/x86/mingw/bin</pElem>
+          </linkerAddLib>
+          <linkerLibItems>
+            <linkerLibLibItem>opencv_calib3d320</linkerLibLibItem>
+            <linkerLibLibItem>opencv_core320</linkerLibLibItem>
+            <linkerLibLibItem>opencv_features2d320</linkerLibLibItem>
+            <linkerLibLibItem>opencv_flann320</linkerLibLibItem>
+            <linkerLibLibItem>opencv_highgui320</linkerLibLibItem>
+            <linkerLibLibItem>opencv_imgcodecs320</linkerLibLibItem>
+            <linkerLibLibItem>opencv_imgproc320</linkerLibLibItem>
+            <linkerLibLibItem>opencv_ml320</linkerLibLibItem>
+            <linkerLibLibItem>opencv_objdetect320</linkerLibLibItem>
+            <linkerLibLibItem>opencv_photo320</linkerLibLibItem>
+            <linkerLibLibItem>opencv_shape320</linkerLibLibItem>
+            <linkerLibLibItem>opencv_stitching320</linkerLibLibItem>
+            <linkerLibLibItem>opencv_superres320</linkerLibLibItem>
+            <linkerLibLibItem>opencv_video320</linkerLibLibItem>
+            <linkerLibLibItem>opencv_videoio320</linkerLibLibItem>
+            <linkerLibLibItem>opencv_videostab320</linkerLibLibItem>
+            <linkerLibLibItem>opencv_ffmpeg320</linkerLibLibItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+      <item path="LIB_ISOPHOTES.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="LIB_ISOPHOTES.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SerialPort.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SerialPort.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="comandos.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="comandos.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="defs.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="defs_globales.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
